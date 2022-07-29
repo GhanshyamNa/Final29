@@ -1,0 +1,100 @@
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<form [formGroup]="cibilform" (ngSubmit)="dataget()">
+    <div class="container register">
+                    <div class="row">
+                        
+                        <div class="col-md-9 register-right">
+                           
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                 
+                                  <div class="row register-form">
+                                                    <div class="col-md-6">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Cibil Id *" formControlName="cibilId" value="" />
+    </div>
+     <div class="form-group">
+        <select class="form-control" formControlName="cibilRemark">
+            <option class="hidden"  selected disabled>Cibil Remark <br></option>
+            <option>Valid</option>
+            <option>Invaild</option>
+            <option>Pending</option>
+        </select>
+
+    </div> 
+    <div class="form-group">
+        <input type="text" class="form-control"  placeholder="Cibil Score *"  formControlName="cibilScore"  [ngModel]=cibil/>
+        <button type="button" class="btnRegister" (click)="addcibil()" >Calculate Cibil</button>
+        <h3 [ngStyle]="getBackground(cibil)" [ngClass]="{'abc':'true'}" >  <label *ngIf='checkCibilhidden'>{{msgCibil()}}</label></h3>
+    </div>
+   
+                                                     </div>
+
+    <div class="form-group">
+        <select class="form-control" formControlName="cibilStatus">
+            <option class="hidden"  selected disabled>Cibil Select Status <br></option>
+            <option>Valid</option>
+            <option>Invaild</option>
+            <option>Pending</option>
+        </select>
+
+    </div>
+ 
+
+    <div formGroupName="enquiryform" >
+
+        <div class="form-group">
+            <input type="text" disabled class="form-control" placeholder="  Customer Pancard No *" [ngModel]="cs.ec.pancardNo"  [ngModelOptions]="{standalone: true}"  />
+        </div>
+
+         <div class="form-group">
+            <input type="text" disabled class="form-control" placeholder=" customer Id *" formControlName="customerId"  [ngModel]="cs.ec.customerId"   />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" disabled placeholder=" title *" formControlName="title"   [ngModel]="cs.ec.title"  />
+        </div>
+        <div class="form-group">
+            <input type="text" disabled class="form-control" placeholder=" Full Name *" formControlName="fullName"  [ngModel]="cs.ec.fullName"  />
+        </div>
+        <div class="form-group">
+            <input type="email" disabled class="form-control" placeholder="  Gender*" formControlName="gender"  [ngModel]="cs.ec.gender"  />
+        </div>
+        <div class="form-group">
+            <input type="text" disabled class="form-control" placeholder=" Customer Mobile Number *" formControlName="mobileNo"  [ngModel]="cs.ec.mobileNo" />
+        </div>
+        <div class="form-group">
+            <input type="text" disabled class="form-control"  placeholder="  Customer Email *" formControlName="email"  [ngModel]="cs.ec.email"   />
+        </div>
+               
+        <div class="form-group">
+            <input type="text"  disabled class="form-control" placeholder=" Customer loanAmount *" formControlName="loanAmount"  [ngModel]="cs.ec.loanAmount"  />
+        </div>
+                                             
+   <div> <input type="submit" class="btnRegister"  value="Register"/></div>
+</div>
+</div>
+</div>
+
+
+
+<div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+  
+    <div class="row register-form">
+        <div class="col-md-6">
+            
+           
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</form>
